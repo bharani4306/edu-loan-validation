@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Education Loan Form</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/validate.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🎓 Education Loan Application</h1>
+    <form id="loanForm" action="/apply" method="post" enctype="multipart/form-data">
+      
+      <label>Full Name:</label>
+      <input type="text" name="name" required><br><br>
+
+      <label>Date of Birth:</label>
+      <input type="date" name="dob" required><br><br>
+
+      <label>Email:</label>
+      <input type="email" name="email" required><br><br>
+
+      <label>Aadhaar Number:</label>
+      <input type="text" name="aadhaar" maxlength="12" required><br><br>
+
+      <label>PAN Number:</label>
+      <input type="text" name="pan" maxlength="10" required><br><br>
+
+      <label>Annual Income:</label>
+      <input type="number" name="income" required><br><br>
+
+      <label>Course:</label>
+      <input type="text" name="course" required><br><br>
+
+      <label>Institution:</label>
+      <input type="text" name="institution" required><br><br>
+
+      <label>Loan Amount:</label>
+      <input type="number" name="amount" required><br><br>
+
+      <label>Aadhaar PDF:</label>
+      <input type="file" name="aadhaarFile" accept="application/pdf" required><br><br>
+
+      <label>PAN PDF:</label>
+      <input type="file" name="panFile" accept="application/pdf" required><br><br>
+
+      <label>Income Proof PDF:</label>
+      <input type="file" name="incomeFile" accept="application/pdf" required><br><br>
+
+      <button type="submit">Apply</button>
+    </form>
+  </div>
+</body>
+</html>
+

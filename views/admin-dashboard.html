@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table { width:100%; border-collapse: collapse; margin-top:20px; }
+    table, th, td { border:1px solid #ddd; padding:10px; text-align:center; }
+    th { background:#007bff; color:white; }
+    a.button { text-decoration:none; padding:5px 10px; background:#28a745; color:white; border-radius:5px; }
+    a.button.reject { background:#dc3545; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📋 Education Loan Applications</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>DOB</th>
+          <th>Course</th>
+          <th>Institution</th>
+          <th>Income</th>
+          <th>Income Group</th>
+          <th>Loan Amount</th>
+          <th>Aadhaar</th>
+          <th>PAN</th>
+          <th>Income Proof</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="applications-body"></tbody>
+    </table>
+    <br>
+    <a href="/admin-logout" class="button" style="background:#6c757d;">Logout</a>
+  </div>
+
+  <script>
+    fetch('/get-applications')
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.getElementById('applications-body');
+        tbody.innerHTML = data.map(app => `
+          <tr>
+            <td>${app.id}</td>
+            <td>${app.name}</td>
+            <td>${app.dob}</td>
+            <td>${app.course}</td>
+            <td>${app.institution}</td>
+            <td>${app.income}</td>
+            <td>${app.incomeGroup}</td>
+            <td>${app.amount}</td>
+            <td><a href="/uploads/aadhaar/${app.files.aadhaar}" target="/uploads/aadhaar/${app.files.aadhaar}">View</a></td>
+            <td><a href="/uploads/pan/${app.files.pan}" target="/uploads/pan/${app.files.pan}">View</a></td>
+            <td><a href="/uploads/income/${app.files.income}" target="/uploads/income/${app.files.income}">View</a></td>
+            <td>${app.status}</td>
+            <td>
+              <a href="/update-status/${app.id}/Approved" class="button">Approve</a>
+             
+              <a href="/update-status/${app.id}/Rejected" class="button reject">Reject</a>
+            </td>
+          </tr>
+        `).join('');
+      });
+  </script>
+</body>
+</html>
+
