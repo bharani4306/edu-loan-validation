@@ -35,7 +35,7 @@ router.post("/admin-login", (req, res) => {
   const { username, password } = req.body;
 
   // Simple admin check
-  if (username === "admin" && password === "12345") {
+  if (username === "admin" && password === "admin") {
     req.session.isAdmin = true; // set session
     res.redirect("/admin");     // redirect to dashboard
   } else {
