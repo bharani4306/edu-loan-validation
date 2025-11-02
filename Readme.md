@@ -24,9 +24,3 @@ It includes a **secure admin dashboard** for reviewing applications, sending app
 
 ----
 
-## ⚙️ Installation and Setup
-
-### 1️⃣ Clone this Repository
-```bash
-git clone https://github.com/<your-username>/edu-loan-validation.git
-cd edu-loan-validation
