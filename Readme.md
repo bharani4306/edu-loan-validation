@@ -22,7 +22,7 @@ It includes a **secure admin dashboard** for reviewing applications, sending app
 - 🧠 Simple and responsive UI  
 - ✅ No database required  
 
----
+----
 
 ## ⚙️ Installation and Setup
 
